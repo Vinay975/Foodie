@@ -244,3 +244,38 @@
     transform: rotate(-10deg) scale(1.2);
     color: #ff2a00;
 }
+/* Default menu */
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+}
+
+/* Hide on small screens */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .navbar-menu.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

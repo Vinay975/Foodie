@@ -5,13 +5,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../Context/StoreContext'
 
 // Icons
-import { FaHome, FaUtensils, FaMobileAlt, FaPhoneAlt } from "react-icons/fa";
+import { FaHome, FaUtensils, FaMobileAlt, FaPhoneAlt, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // 👈 mobile menu toggle
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -41,18 +42,23 @@ const Navbar = ({ setShowLogin }) => {
         </h2>
       </Link> 
 
+      {/* Hamburger Icon for mobile */}
+      <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
       {/* Menu */}
-      <ul className="navbar-menu">
-        <Link to="/" onClick={() => setMenu("home")} className={`${menu === "home" ? "active" : ""}`}>
+      <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
+        <Link to="/" onClick={() => {setMenu("home"); setIsOpen(false)}} className={`${menu === "home" ? "active" : ""}`}>
           <FaHome className="nav-icon" /> home
         </Link>
-        <a href='#explore-menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>
+        <a href='#explore-menu' onClick={() => {setMenu("menu"); setIsOpen(false)}} className={`${menu === "menu" ? "active" : ""}`}>
           <FaUtensils className="nav-icon" /> menu
         </a>
-        <a href='#app-download' onClick={() => setMenu("mob-app")} className={`${menu === "mob-app" ? "active" : ""}`}>
+        <a href='#app-download' onClick={() => {setMenu("mob-app"); setIsOpen(false)}} className={`${menu === "mob-app" ? "active" : ""}`}>
           <FaMobileAlt className="nav-icon" /> mobile app
         </a>
-        <a href='#footer' onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>
+        <a href='#footer' onClick={() => {setMenu("contact"); setIsOpen(false)}} className={`${menu === "contact" ? "active" : ""}`}>
           <FaPhoneAlt className="nav-icon" /> contact us
         </a>
       </ul>
