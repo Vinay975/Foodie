@@ -1,4 +1,4 @@
-.footer{
+.footer {
     color: #D9D9D9;
     background-color: #323232;
     display: flex;
@@ -8,47 +8,126 @@
     padding: 20px 8vw;
     padding-top: 80px;
 }
-.footer-content{
+
+/* Layout */
+.footer-content {
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 80px;
 }
-.footer-content-left , .footer-content-center , .footer-content-right {
+
+.footer-content-left,
+.footer-content-center,
+.footer-content-right {
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 20px;
 }
-.footer-content-left ul li, .footer-content-center ul li, .footer-content-right ul li{
+
+/* Brand */
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF4C24;
+    cursor: pointer;
+}
+
+.footer-brand .brand-icon {
+    font-size: 26px;
+}
+
+/* Company & contact */
+.footer-content-left p {
+    line-height: 1.6;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.footer-content-left h2,
+.footer-content-center h2,
+.footer-content-right h2 {
+    color: white;
+    font-size: 18px;
+}
+
+/* Links */
+.footer-content-center ul li,
+.footer-content-right ul li {
     margin-bottom: 10px;
     list-style: none;
 }
-.footer-content-left h2, .footer-content-center h2, .footer-content-right h2{
-    color: white;
+
+.footer-content-center ul li a,
+.footer-content-right ul li a {
+    color: #d9d9d9;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
 }
-.footer-social-icons img{
-    width: 40px;
+
+.footer-content-center ul li a:hover,
+.footer-content-right ul li a:hover {
+    color: #FF4C24;
 }
-.footer-social-icons{
+
+/* Social icons */
+.footer-social-icons {
     display: flex;
     gap: 15px;
 }
-.footer li{
-    cursor: pointer;
+
+.footer-social-icons a img {
+    width: 40px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 50%;
+    background: #fff;
+    padding: 6px;
 }
-.footer hr{
+
+.footer-social-icons a img:hover {
+    transform: scale(1.2);
+    filter: brightness(0) saturate(100%) invert(43%) sepia(99%) saturate(3162%) hue-rotate(353deg) brightness(97%) contrast(102%);
+}
+
+/* Divider */
+.footer hr {
     width: 100%;
     height: 2px;
+    background: #444;
     margin: 20px 0px;
+    border: none;
 }
-@media (max-width:750px) {
-    .footer-content{
+
+/* Responsive */
+@media (max-width: 750px) {
+    .footer-content {
         display: flex;
         flex-direction: column;
         gap: 35px;
     }
-    .footer-copyright{
+    .footer-copyright {
         text-align: center;
     }
+}
+/* Social Icons */
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social-icons .social-icon {
+    font-size: 28px;
+    color: #fff;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-social-icons .social-icon:hover {
+    transform: scale(1.2);
+    color: #FF4C24;
 }
